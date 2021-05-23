@@ -30,4 +30,44 @@ start(){
 
 }
 
+play(){
+
+    form.hide();;
+    textSize(30);
+    text("Game Start", 200, 150);
+
+    Player.getPlayerInfo();
+
+    if(allPlayers !== undefined){
+
+        var y = 160;
+        for(var plr in allPlayers){
+
+            if(plr === "player"+player.index){
+                fill("red");
+            }
+            else{
+               fill("black");
+            }
+
+            y= y + 50;
+
+        textSize(25);
+        text(allPlayers[plr].name + ":"+ allPlayers[plr].distance, 200, y)
+
+
+        }
+
+
+    }
+
+    if(keyIsDown(UP_ARROW) && player.index !== null){
+
+        player.distance+=10;
+        player.update();
+    }
+
+
+}
+
 }
